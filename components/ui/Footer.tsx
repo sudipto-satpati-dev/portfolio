@@ -1,9 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { PromptLabel } from "./PromptLabel";
 import { Github, Linkedin, Code2, FileText, Mail, Phone, MapPin, Copy, Check } from "lucide-react";
 import { INITIAL_SITE_CONFIG } from "@/lib/mockData";
+
+const DistortSphereCanvas = dynamic(() => import("../three/DistortSphereCanvas"), {
+  ssr: false,
+});
 
 export const Footer: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -17,9 +22,9 @@ export const Footer: React.FC = () => {
   return (
     <footer id="contact" className="border-t border-border-subtle bg-surface/50 py-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
-          {/* Left Column */}
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+          {/* Left Column: Contact Text & Form Info (7 Cols) */}
+          <div className="lg:col-span-7 space-y-6">
             <PromptLabel label="./contact.sh" />
             <h2 className="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
               Let&apos;s build production systems together.
@@ -54,10 +59,14 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Social Links & CTAs */}
-          <div className="space-y-6 lg:pl-12 flex flex-col justify-between h-full">
-            <div className="space-y-4">
-              <span className="font-mono text-xs text-text-muted uppercase tracking-wider block">
+          {/* Right Column: 3D Organic Warping Blob Sphere + Social Links (5 Cols) */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end space-y-6">
+            <div className="flex items-center justify-center relative">
+              <DistortSphereCanvas />
+            </div>
+
+            <div className="w-full space-y-4">
+              <span className="font-mono text-xs text-text-muted uppercase tracking-wider block text-center lg:text-right">
                 Network & Profile Links
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -102,12 +111,12 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
-
-            <div className="pt-6 border-t border-border-subtle/50 font-mono text-[11px] text-text-muted flex flex-col sm:flex-row items-center justify-between gap-2">
-              <span>© {new Date().getFullYear()} Sudipto Satpati. All rights reserved.</span>
-              <span className="text-text-muted">Built with Next.js 14 & Three.js</span>
-            </div>
           </div>
+        </div>
+
+        <div className="pt-6 border-t border-border-subtle/50 font-mono text-[11px] text-text-muted flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span>© {new Date().getFullYear()} Sudipto Satpati. All rights reserved.</span>
+          <span className="text-text-muted">Built with Next.js 14 & Three.js</span>
         </div>
       </div>
     </footer>

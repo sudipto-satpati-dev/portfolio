@@ -18,6 +18,10 @@ export const metadata: Metadata = {
     "Open Source Developer",
   ],
   authors: [{ name: "Sudipto Satpati" }],
+  icons: {
+    icon: "/assets/logo.png",
+    apple: "/assets/logo.png",
+  },
   openGraph: {
     title: "Sudipto Satpati — Full-Stack Software Engineer",
     description:

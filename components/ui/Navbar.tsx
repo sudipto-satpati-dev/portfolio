@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Terminal, Menu, X, ShieldAlert } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ShieldAlert } from "lucide-react";
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -33,13 +34,16 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Monogram Logo SS */}
+        {/* Monogram Logo */}
         <Link href="/" className="group flex items-center gap-2.5">
-          <div className="relative w-9 h-9 rounded bg-surface border border-border-subtle group-hover:border-accent-primary transition-all duration-300 flex items-center justify-center overflow-hidden">
-            <span className="font-mono text-sm font-bold text-accent-primary group-hover:scale-105 transition-transform">
-              SS
-            </span>
-            <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-accent-secondary" />
+          <div className="relative w-9 h-9 rounded bg-surface border border-border-subtle group-hover:border-accent-primary transition-all duration-300 flex items-center justify-center overflow-hidden shadow-glow-blue p-0.5">
+            <Image
+              src="/assets/logo.png"
+              alt="Sudipto Satpati Monogram Logo"
+              width={36}
+              height={36}
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+            />
           </div>
           <div className="hidden sm:flex flex-col">
             <span className="font-mono text-xs font-semibold text-text-primary group-hover:text-accent-primary transition-colors">

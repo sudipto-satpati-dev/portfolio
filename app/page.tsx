@@ -6,11 +6,13 @@ import { OssShelf } from "@/components/oss/OssShelf";
 import { Timeline } from "@/components/experience/Timeline";
 import { SkillsSection } from "@/components/skills/SkillsSection";
 import { Footer } from "@/components/ui/Footer";
+import { SplashScreen } from "@/components/ui/SplashScreen";
 import { INITIAL_PROJECTS, INITIAL_OSS_TOOLS, INITIAL_EXPERIENCE } from "@/lib/mockData";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-text-primary selection:bg-accent-primary selection:text-background flex flex-col justify-between">
+      <SplashScreen />
       <Navbar />
 
       <main className="flex-1 space-y-12">

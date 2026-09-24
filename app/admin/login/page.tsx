@@ -26,8 +26,12 @@ export default function AdminLoginPage() {
 
       <div className="w-full max-w-md relative z-10 space-y-6">
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-lg bg-surface border border-border-subtle text-accent-primary mx-auto flex items-center justify-center shadow-glow">
-            <Lock className="w-6 h-6" />
+          <div className="w-12 h-12 rounded-lg bg-surface border border-border-subtle mx-auto flex items-center justify-center shadow-glow overflow-hidden p-1.5">
+            <img
+              src="/assets/logo.png"
+              alt="Admin Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
           <h1 className="font-mono text-2xl font-bold text-text-primary">
             Admin Auth Terminal

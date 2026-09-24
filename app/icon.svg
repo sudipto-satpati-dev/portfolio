@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <rect width="48" height="48" rx="8" fill="#131318" stroke="#262638" stroke-width="1.5"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="20" fill="#4d9fff" letter-spacing="-1">SS</text>
+  <circle cx="38" cy="12" r="3" fill="#00ff9d"/>
+</svg>
