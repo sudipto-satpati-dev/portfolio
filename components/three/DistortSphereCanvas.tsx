@@ -20,9 +20,9 @@ export const DistortSphereCanvas: React.FC = () => {
   }
 
   return (
-    <div className="w-full max-w-[280px] h-[230px] sm:h-[250px] relative overflow-hidden select-none pointer-events-auto flex items-center justify-center">
+    <div className="w-full max-w-[320px] h-[260px] sm:h-[390px] relative overflow-hidden select-none pointer-events-auto flex items-center justify-center">
       <Canvas
-        camera={{ position: [0, 0, 6.0], fov: 45 }}
+        camera={{ position: [0, 0, 5.8], fov: 46 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
       >

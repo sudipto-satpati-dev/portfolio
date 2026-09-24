@@ -20,10 +20,10 @@ export const DistortSphereScene: React.FC = () => {
   const targetColorBlue = useMemo(() => new THREE.Color("#4d9fff"), []);
   const targetColorGreen = useMemo(() => new THREE.Color("#00ff9d"), []);
 
-  // Generate 36 surface node dots on the scaled-down globe (radius 0.83)
+  // Generate 36 surface node dots on the scaled-up globe (radius 0.95)
   const [nodePositions] = useMemo(() => {
     const pos = new Float32Array(36 * 3);
-    const radius = 0.83;
+    const radius = 0.95;
     for (let i = 0; i < 36; i++) {
       const lat = (Math.random() - 0.5) * Math.PI;
       const lon = Math.random() * Math.PI * 2;
@@ -60,19 +60,19 @@ export const DistortSphereScene: React.FC = () => {
     }
 
     // Animate Satellites orbiting along their scaled 3D Torus paths
-    const r1 = 1.08;
+    const r1 = 1.22;
     if (sat1Ref.current) {
       sat1Ref.current.position.x = Math.cos(time * 1.4) * r1;
       sat1Ref.current.position.z = Math.sin(time * 1.4) * r1;
     }
 
-    const r2 = 1.25;
+    const r2 = 1.40;
     if (sat2Ref.current) {
       sat2Ref.current.position.x = Math.cos(-time * 1.1) * r2;
       sat2Ref.current.position.z = Math.sin(-time * 1.1) * r2;
     }
 
-    const r3 = 1.42;
+    const r3 = 1.58;
     if (sat3Ref.current) {
       sat3Ref.current.position.x = Math.sin(time * 1.6) * r3;
       sat3Ref.current.position.y = Math.cos(time * 1.6) * r3;
@@ -88,9 +88,9 @@ export const DistortSphereScene: React.FC = () => {
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
-        {/* Inner Solid Core (Radius 0.8) */}
+        {/* Inner Solid Core (Radius 0.92) */}
         <mesh>
-          <sphereGeometry args={[0.8, 32, 32]} />
+          <sphereGeometry args={[0.92, 32, 32]} />
           <meshStandardMaterial
             color="#12121a"
             roughness={0.3}
@@ -100,9 +100,9 @@ export const DistortSphereScene: React.FC = () => {
           />
         </mesh>
 
-        {/* Outer Wireframe Tech Globe Grid (Radius 0.82) */}
+        {/* Outer Wireframe Tech Globe Grid (Radius 0.94) */}
         <mesh>
-          <sphereGeometry args={[0.82, 24, 24]} />
+          <sphereGeometry args={[0.94, 24, 24]} />
           <meshBasicMaterial
             ref={globeGridMaterialRef}
             wireframe
@@ -120,7 +120,7 @@ export const DistortSphereScene: React.FC = () => {
             />
           </bufferGeometry>
           <pointsMaterial
-            size={0.055}
+            size={0.06}
             color={hovered ? "#00ff9d" : "#16ff9e"}
             transparent
             opacity={0.9}
@@ -129,11 +129,11 @@ export const DistortSphereScene: React.FC = () => {
         </points>
       </group>
 
-      {/* COMPACT 3D SATELLITE ORBIT TUBES & REVOLVING SATELLITE ORBS */}
-      {/* Satellite Orbit 1: Tilted 3D Torus Tube (Radius 1.08) */}
+      {/* 3D SATELLITE ORBIT TUBES & REVOLVING SATELLITE ORBS */}
+      {/* Satellite Orbit 1: Tilted 3D Torus Tube (Radius 1.22) */}
       <group rotation={[Math.PI / 3, Math.PI / 6, 0]}>
         <mesh>
-          <torusGeometry args={[1.08, 0.012, 16, 100]} />
+          <torusGeometry args={[1.22, 0.014, 16, 100]} />
           <meshStandardMaterial
             color="#00ff9d"
             emissive="#00ff9d"
@@ -144,7 +144,7 @@ export const DistortSphereScene: React.FC = () => {
         </mesh>
         {/* Revolving Satellite 1 */}
         <mesh ref={sat1Ref}>
-          <sphereGeometry args={[0.05, 16, 16]} />
+          <sphereGeometry args={[0.055, 16, 16]} />
           <meshStandardMaterial
             color="#00ff9d"
             emissive="#00ff9d"
@@ -153,10 +153,10 @@ export const DistortSphereScene: React.FC = () => {
         </mesh>
       </group>
 
-      {/* Satellite Orbit 2: Tilted Reverse 3D Torus Tube (Radius 1.25) */}
+      {/* Satellite Orbit 2: Tilted Reverse 3D Torus Tube (Radius 1.40) */}
       <group rotation={[-Math.PI / 4, Math.PI / 3, Math.PI / 8]}>
         <mesh>
-          <torusGeometry args={[1.25, 0.012, 16, 100]} />
+          <torusGeometry args={[1.40, 0.014, 16, 100]} />
           <meshStandardMaterial
             color="#4d9fff"
             emissive="#4d9fff"
@@ -167,7 +167,7 @@ export const DistortSphereScene: React.FC = () => {
         </mesh>
         {/* Revolving Satellite 2 */}
         <mesh ref={sat2Ref}>
-          <sphereGeometry args={[0.05, 16, 16]} />
+          <sphereGeometry args={[0.055, 16, 16]} />
           <meshStandardMaterial
             color="#4d9fff"
             emissive="#4d9fff"
@@ -176,10 +176,10 @@ export const DistortSphereScene: React.FC = () => {
         </mesh>
       </group>
 
-      {/* Satellite Orbit 3: Inclined Polar 3D Torus Tube (Radius 1.42) */}
+      {/* Satellite Orbit 3: Inclined Polar 3D Torus Tube (Radius 1.58) */}
       <group rotation={[Math.PI / 6, -Math.PI / 4, Math.PI / 3]}>
         <mesh>
-          <torusGeometry args={[1.42, 0.012, 16, 100]} />
+          <torusGeometry args={[1.58, 0.014, 16, 100]} />
           <meshStandardMaterial
             color="#a4c8ff"
             emissive="#a4c8ff"
@@ -190,7 +190,7 @@ export const DistortSphereScene: React.FC = () => {
         </mesh>
         {/* Revolving Satellite 3 */}
         <mesh ref={sat3Ref}>
-          <sphereGeometry args={[0.05, 16, 16]} />
+          <sphereGeometry args={[0.055, 16, 16]} />
           <meshStandardMaterial
             color="#a4c8ff"
             emissive="#a4c8ff"
